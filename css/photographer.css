@@ -17,16 +17,20 @@
     align-items: center;
 }
 
-.photograph-header article h2 {
-    color: #D3573C;
-    font-size: 36px;
-    margin: 12px;
+.photograph-header article {
+    margin-left: 24px;
 }
 
-.photograph-header article h3 {
+.photograph-header article h1 {
+    color: #D3573C;
+    font-size: 36px;
+}
+
+#photographer-city {
     color: #901C1C;
     font-size: 18px;
     margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .img_container {
@@ -42,12 +46,13 @@
 
 .article {
     grid-area: description;
-    
 }
 
-/* .photograph-header article {
-
-} */
+.photograph-header article .photographer-city {
+    color: #901C1C;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
 
 .photograph-header .img_container img {
     height: 200px;
@@ -123,7 +128,7 @@ form input {
     border-radius: 5px;
 }
 
-.photograph_media_section {
+.photograph-media-section {
     display: flex;
     flex-wrap: wrap;
     margin: 0 100px;
@@ -131,16 +136,98 @@ form input {
     
 }
 
-.photograph_media_section article img {
+.photograph-media-section article img {
     height: 350px;
     width: 350px;
     object-fit: cover;
     margin: 40px 0;
 }
 
-.photograph_media_section article video {
+.photograph-media-section article video {
     height: 350px;
     width: 350px;
     object-fit: cover;
     margin: 40px 0;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
+#lightbox__close {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 75px;
+    left: 90vw;
+    opacity: 1;
+    transition: opacity .3s;
+    z-index: 5;
+}
+
+#lightbox__close:hover,
+#lightbox__close:focus {
+    opacity: 0.5;
+}
+
+#lightbox__next,
+#lightbox__prev {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 47%;
+    z-index: 4;
+    opacity: 1;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#lightbox__prev {
+    right: 90vw;
+}
+
+#lightbox__next {
+    left: 90vw;
+}
+
+#lightbox__next:hover,
+#lightbox__prev:hover,
+#lightbox__next:focus,
+#lightbox__prev:focus {
+    opacity: .5;
+}
+
+.media-lightbox, 
+.lightbox video {
+    margin-top: 60px;
+    height: 1px;
+    width: 73%;
+    flex-grow: 1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.lightbox h2 {
+    display: flex;
+    color: #901C1C;
+    height: 60px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+    width: 73%;
+    align-items: center;
+}
+
+.lightbox h2:focus {
+    color: black;
 }

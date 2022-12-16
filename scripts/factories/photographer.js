@@ -1,3 +1,4 @@
+// generate photographer card on index.
 function photographerFactory(data) {
   // get data from the imported object in fetch of json
   const { name, portrait, city, country, tagline, price, id } = data;
@@ -8,35 +9,37 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     const article = document.createElement("article");
     article.setAttribute("aria-label", "carte photographe");
-
-    const link = document.createElement("a");
+    // define DOM element
     const pathId = `./photographer.html?id=${id}`;
-    link.setAttribute("href", pathId);
-    link.setAttribute("aria-label", "lien vers artiste");
-    article.appendChild(link);
+    const photographerLink = document.createElement("a");
+    const photographerImg = document.createElement("img");
+    const photographerName = document.createElement("h2");
+    const photographerCity = document.createElement("div");
+    const photographerTag = document.createElement("div");
+    const photographerPrice = document.createElement("div");
 
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", "portrait photographe");
-    link.appendChild(img);
+    photographerLink.setAttribute("href", pathId);
+    photographerLink.setAttribute("aria-label", name);
+    article.appendChild(photographerLink);
 
-    const h2 = document.createElement("h2");
-    h2.textContent = name;
-    link.appendChild(h2);
+    photographerImg.setAttribute("src", picture);
+    photographerImg.setAttribute("alt", "portrait photographe");
+    photographerLink.appendChild(photographerImg);
 
-    const h3 = document.createElement("h3");
-    h3.textContent = city + ", " + country;
-    article.appendChild(h3);
+    photographerName.textContent = name;
+    photographerLink.appendChild(photographerName);
 
-    const divTag = document.createElement("div");
-    divTag.setAttribute("id", "tagline");
-    divTag.textContent = tagline;
-    article.appendChild(divTag);
+    photographerCity.textContent = city + ", " + country;
+    photographerCity.className = "photographer-city"
+    article.appendChild(photographerCity);
 
-    const divPrice = document.createElement("div");
-    divPrice.setAttribute("id", "price");
-    divPrice.textContent = price + "€/jour";
-    article.appendChild(divPrice);
+    photographerTag.className = "tagline";
+    photographerTag.textContent = tagline;
+    article.appendChild(photographerTag);
+
+    photographerPrice.className = "price";
+    photographerPrice.textContent = price + "€/jour";
+    article.appendChild(photographerPrice);
 
     return article;
   }

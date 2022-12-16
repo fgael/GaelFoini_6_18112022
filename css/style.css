@@ -17,7 +17,6 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
 }
 
 .logo {
@@ -53,12 +52,6 @@ h1 {
     text-decoration: none;
 } 
 
-.photographer_section article h3 {
-    color: #901C1C;
-    font-size: 18px;
-    margin-bottom: 6px;
-}
-
 .photographer_section article img {
     height: 200px;
     width: 200px;
@@ -66,8 +59,15 @@ h1 {
     border-radius: 50%;
 }
 
-.photographer_section article #price {
+.photographer_section article .price {
     font-size: 0.8rem;
     color: grey;
 }
 
+.photographer_section article .tagline {
+    margin-bottom: 6px;
+}
+
+.photographer_section article .photographer-city {
+    color: #901C1C
+}
