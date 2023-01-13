@@ -1,15 +1,14 @@
 // index.html
 // import data from json
 async function getPhotographers() {
-  return fetch("./data/photographers.json")
-    .then(function (res) {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  try {
+    const res = await fetch('./data/photographers.json');
+    if (res.ok) {
+      return res.json();
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // photographer display

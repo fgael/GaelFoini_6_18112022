@@ -9,23 +9,43 @@
   </head>
   <body>
     <header>
-      <a href="/Formation_dev_react/P6/GaelFoini_6_18112022/">
+      <a href="/Formation_dev_react/P6/GaelFoini_6_18112022/" tabindex="1">
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()" alt="Contact Me">Contactez-moi</button>
+        <button class="contact_button" onclick="toggleModal()" alt="Contact Me">Contactez-moi</button>
+      </div>
+      <div class="sort">
+        <p tabindex="0">Trier par</p>
+        <button aria-label="dérouler le menu pour trier les médias" class="button">
+          <span class="menu_title">Popularité</span>
+          <img src="assets/icons/downArrow.svg" id="menu_arrow" aria-hidden="true" alt="down arrow">
+        </button>
+        <ul class="selector" role="listbox" tabindex="-1">
+          <li class="selector_pop" role="option" data-filter="Popularité" aria-label="Popularité" tabindex="0">
+            <span><img src="assets/icons/upArrow.svg" id="up_arrow" aria-hidden="true" alt="up arrow">Popularité</span>
+          </li>
+          <li class="selector_date" role="option" data-filter="Date" tabindex="0">
+            <span class="date">Date</span>
+            <hr aria-hidden="true" class="line">
+          </li>
+          <li class="selector_title" role="option" data-filter="Titre" tabindex="0">
+            <span class="title">Titre</span>
+            <hr aria-hidden="true" class="line">
+          </li>
+        </ul>
       </div>
       <div class="photograph-media-section">   
       </div>
-      <div role="dialog" class="lightbox"></div>
+      <div class="lightbox"></div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" tabindex="0">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="toggleModal()" />
         </header>
 				<form>
 					<div>
@@ -41,5 +61,6 @@
     <script src="scripts/factories/lightbox.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/sorterButton.js"></script>
   </body>
 </html>

@@ -7,40 +7,18 @@ function photographerFactory(data) {
 
   // create user card in DOM
   function getUserCardDOM() {
-    const article = document.createElement("article");
-    article.setAttribute("aria-label", "carte photographe");
-    // define DOM element
+    const article = document.createElement('article');
+    article.setAttribute('aria-label', 'carte photographe');
     const pathId = `./photographer.html?id=${id}`;
-    const photographerLink = document.createElement("a");
-    const photographerImg = document.createElement("img");
-    const photographerName = document.createElement("h2");
-    const photographerCity = document.createElement("div");
-    const photographerTag = document.createElement("div");
-    const photographerPrice = document.createElement("div");
-
-    photographerLink.setAttribute("href", pathId);
-    photographerLink.setAttribute("aria-label", name);
-    article.appendChild(photographerLink);
-
-    photographerImg.setAttribute("src", picture);
-    photographerImg.setAttribute("alt", "portrait photographe");
-    photographerLink.appendChild(photographerImg);
-
-    photographerName.textContent = name;
-    photographerLink.appendChild(photographerName);
-
-    photographerCity.textContent = city + ", " + country;
-    photographerCity.className = "photographer-city"
-    article.appendChild(photographerCity);
-
-    photographerTag.className = "tagline";
-    photographerTag.textContent = tagline;
-    article.appendChild(photographerTag);
-
-    photographerPrice.className = "price";
-    photographerPrice.textContent = price + "€/jour";
-    article.appendChild(photographerPrice);
-
+    article.innerHTML = `
+      <a href="${pathId}" aria-label="${name}">
+        <img src="${picture}" alt="portrait photographe">
+        <h2>${name}</h2>
+      </a>
+      <div class="photographer-city">${city}, ${country}</div>
+      <div class="tagline">${tagline}</div>
+      <div class="price">${price}€/jour</div>
+    `;
     return article;
   }
   return { getUserCardDOM };
