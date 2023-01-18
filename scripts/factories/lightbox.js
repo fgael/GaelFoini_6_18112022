@@ -84,7 +84,6 @@ async function lightboxFactory(data) {
 
   document.addEventListener('keydown', function(e) {
   let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
   if (!isTabPressed) {
   return;
   }

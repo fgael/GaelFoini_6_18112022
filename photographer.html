@@ -15,7 +15,7 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="toggleModal()" alt="Contact Me">Contactez-moi</button>
+        <button class="contact_button"  alt="Contact Me">Contactez-moi</button>
       </div>
       <div class="sort">
         <p tabindex="0">Trier par</p>
@@ -41,21 +41,48 @@
       </div>
       <div class="lightbox"></div>
     </main>
-    <div id="contact_modal" tabindex="0">
-			<div class="modal">
-				<header>
+  <div role="dialog" id="contact_modal" aria-describedby="contact_photographer" tabindex="-1">
+    <div class="modal" id="contact_photographer">
+      <header>
+        <div tabindex="0">
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="toggleModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+        </div>
+      </header>
+
+      <form method="get">
+        <div class="formData" data-error="Veuillez saisir votre prénom contenant deux lettres minimum" aria-describedby="prenom">
+          <label id="first-name" for="prenom" tabindex="0">Prénom</label>
+          <input class="text-control" tabindex="0" name="firstName" type="text" id="prenom" placeholder="Veuillez saisir votre prénom"
+            minlength="2" maxlength="30" aria-labelledby="first-name" required />
+        </div>
+        <div class="formData" data-error="Veuillez saisir votre nom contenant deux lettres minimum" aria-describedby="nom">
+          <label id="last-name" for="nom" tabindex="0">Nom</label>
+          <input class="text-control" tabindex="0" name="lastName" type="text" id="nom" placeholder="Veuillez saisir votre nom" minlength="2"
+            maxlength="30" aria-labelledby="last-name" required />
+        </div>
+        <div class="formData" data-error="Veuillez saisir votre email" aria-describedby="email">
+          <label id="e-mail" for="email" tabindex="0">Email</label>
+          <input class="text-control" tabindex="0" name="mail" type="email" id="email" placeholder="Veuillez saisir votre adresse e-mail"
+            maxlength="50" aria-labelledby="e-mail" required />
+        </div>
+        <div class="formData" data-error="Veuillez saisir votre message" aria-describedby="message">
+          <label id="your-message" for="message" tabindex="0">Votre message</label>
+          <textarea class="text-control" tabindex="0" name="votreMessage" id="message" placeholder=""
+            maxlength="100" aria-labelledby="your-message" required></textarea>
+        </div>
+
+        <button class="contact_button btn-submit" type="submit" aria-label="Send" tabindex="0">Envoyer</button>
+      </form>
+
+      <img class="close-modal" src="assets/icons/close.svg" alt="Close Contact form" tabindex="0"/>
+    </div>
+
+    <div aria-label="SendConfirmation" class="modal-confirm" aria-describedby="confirmDispatch" tabindex="-1">
+      <p id="confirmDispatch" tabindex="0">Votre message a bien été envoyé !</p>
+      <img class="close-modal close-modal-validate" src="assets/icons/close.svg" alt="Close Contact form" tabindex="0"/>
+    </div>
+  </div>
+
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/lightbox.js"></script>

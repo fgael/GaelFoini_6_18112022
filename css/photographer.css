@@ -74,45 +74,67 @@
 
 #contact_modal {
     display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.24);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 }
 
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+    width: 600px;
     align-items: center;
-    justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.521) 0 0 15px;
+    overflow: auto;
+    position: relative;
 }
 
 .modal header {
-    justify-content: space-between;
     width: 100%;
+    height: auto;
+    margin-bottom: 30px;
 }
 
-.modal header img {
+.modal img {
+    position: absolute;
     cursor: pointer;
+    top: 35px;
+    right: 35px;
 }
 
-.modal header h2 {
-    font-size: 64px;
+.modal-confirm img {
+    width: 20px;
+    position: relative;
+    cursor: pointer;
+    bottom: 20px;
+    left: 350px;
+}
+
+.modal header h2,
+.modal header p {
+    font-size: 4rem;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
 }
 
 form {
-    display: flex;
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 2.25rem;
+}
+
+form label:focus {
+    color: black;
 }
 
 form div {
@@ -120,14 +142,79 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 60px;
     border: none;
     border-radius: 5px;
+    font-size: 1.5625rem;
+    border: 2px solid transparent;
+}
+
+form input:hover,
+form input:focus {
+    border: 2px solid #737373;
+}
+
+form textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 170px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5626rem;
+    border: 1px solid transparent;
+}
+
+form textarea:hover,
+form textarea:focus {
+    border: 1px solid #737373;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+    background-color: #901C1C;
+}
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.9em;
+    color: #901C1C;
+    font-weight: 600;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.formData[data-error-visible="true"]::after {
+    opacity: 1;
+}
+
+.formData[data-error-visible="true"] .text-control {
+    border: 2px solid #901C1C;
+}
+
+.modal-confirm {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 669px;
+    padding: 35px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.521) 0 0 15px;
+    font-weight: 400;
+    font-size: 2.25rem;
+    display: none;
 }
 
 /* sort  */

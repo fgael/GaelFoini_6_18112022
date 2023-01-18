@@ -59,7 +59,7 @@ function sortMedia(media, sortBy) {
   media.sort(sortFunctions[sortBy]);
 }
 
-//Fonction pour incrémenter et décrémenter les likes des photographies
+// likes incrementation
 function incrementationLike(e) {    
   let likeElement = e.currentTarget.previousSibling;
   let likeFix = likeElement.getAttribute("likes");
@@ -77,7 +77,7 @@ function incrementationLike(e) {
   computeTotalLikes();
 }
 
-// Fonction de calcul total des likes
+// compute total likes
 function computeTotalLikes() {
   let array = document.querySelectorAll(".media-title-likes span");
   let priceContainerLikesTotal = document.querySelector(".price-container p");
