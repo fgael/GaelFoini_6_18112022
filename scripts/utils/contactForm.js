@@ -1,3 +1,4 @@
+// get dom element
 const btnContactModal = document.querySelector(".contact_button");
 const main = document.getElementById("main");
 const submitbtn = document.querySelector(".btn-submit");
@@ -12,9 +13,10 @@ const message = document.getElementById("message");
 const modalConfirm = document.querySelector(".modal-confirm");
 const btnCloseValidateModal = document.querySelector(".close-modal-validate");
 
+// listen contact button for display
 btnContactModal.addEventListener("click", displayModal);
-//OUVERTURE ET FERMETURE DE LA MODAL
 
+// display modal
 function displayModal() {
   modalBg.style.display = "flex";
   main.setAttribute("aria-hidden", "true");
@@ -26,8 +28,10 @@ function displayModal() {
   message.addEventListener("input", messageValid);
   document.getElementById("contact_modal");
   focusModal();
+  displayName();
 }
 
+// close modal and reset
 function closeModal() {
   resetForm();
   modalBg.style.display = "none";
@@ -42,7 +46,7 @@ function closeModal() {
   modalConfirm.style.display = "none";
 }
 
-//FERMETURE DE LA MODALE AVEC LE CLAVIER
+// close modal by keyboard
 btnCloseModal.addEventListener("click", closeModal);
 btnCloseModal.addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
@@ -50,7 +54,7 @@ btnCloseModal.addEventListener("keydown", (e) => {
   }
 });
 
-//REINITIALISATION DU FORMULAIRE
+// form reset
 function resetForm() {
   firstName.value = "";
   lastName.value = "";
@@ -59,7 +63,7 @@ function resetForm() {
   formData.forEach((formData) => (formData.dataset.errorVisible = false));
 }
 
-//VALIDATION DU FORMULAIRE
+// form validation
 function firstNameValid() {
   if (firstName.checkValidity() !== true) {
     firstName.parentElement.dataset.errorVisible = true;
@@ -125,6 +129,7 @@ function validForm() {
   return false;
 }
 
+// if validate open new modal for confimation
 function validateModal() {
   modal.style.display = "none";
   modalConfirm.style.display = "flex";
@@ -136,6 +141,7 @@ function validateModal() {
   });
 }
 
+// display errors
 function elementsNotValidated() {
   firstNameValid();
   lastNameValid();
@@ -145,36 +151,38 @@ function elementsNotValidated() {
 
 function focusModal() {
   // add all the elements inside modal which you want to make focusable
-  const focusableElements = document.querySelector(".modal").querySelectorAll('[tabindex]');
-  console.log(focusableElements)
+  const focusableElements = document
+    .querySelector(".modal")
+    .querySelectorAll("[tabindex]");
+  console.log(focusableElements);
 
-  const firstFocusableElement = (focusableElements)[0]; // get first element to be focused inside modal
+  const firstFocusableElement = focusableElements[0]; // get first element to be focused inside modal
 
-  const focusableContent = (focusableElements);
-  console.log(focusableContent)
-  const lastFocusableElement = focusableContent[focusableContent.length -1]; // get last element to be focused inside modal
-  console.log(lastFocusableElement)
+  const focusableContent = focusableElements;
+  console.log(focusableContent);
+  const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+  console.log(lastFocusableElement);
 
-  document.addEventListener("keydown", function (e) { 
+  document.addEventListener("keydown", function (e) {
     let isTabPressed = e.key === "Tab" || e.keyCode === 9;
-    console.log(document.activeElement)
-    console.log(lastFocusableElement)
+    console.log(document.activeElement);
+    console.log(lastFocusableElement);
     if (!isTabPressed) {
       return;
     }
 
     if (e.shiftKey) {
-      console.log("shift")
+      console.log("shift");
       // if shift key pressed for shift + tab combination
       if (document.activeElement === firstFocusableElement) {
         lastFocusableElement.focus(); // add focus for the last focusable element
         e.preventDefault();
       }
     } else {
-      console.log("tab")
+      console.log("tab");
       // if tab key is pressed
       if (document.activeElement === lastFocusableElement) {
-        console.log("toto")
+        console.log("toto");
         // if focused has reached to last focusable element then focus first focusable element after pressing tab
         firstFocusableElement.focus(); // add focus for the first focusable element
         e.preventDefault();

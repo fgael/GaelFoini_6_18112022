@@ -2,7 +2,7 @@
 // import data from json
 async function getPhotographers() {
   try {
-    const res = await fetch('./data/photographers.json');
+    const res = await fetch("./data/photographers.json");
     if (res.ok) {
       return res.json();
     }
@@ -11,7 +11,7 @@ async function getPhotographers() {
   }
 }
 
-// photographer display
+//  photographer display
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
   photographers.forEach((photographer) => {

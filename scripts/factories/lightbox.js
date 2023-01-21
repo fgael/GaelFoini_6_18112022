@@ -2,8 +2,10 @@
 const lightbox = document.querySelector(".lightbox");
 
 async function lightboxFactory(data) {
+  // get data from the imported object in fetch of json
   const { title, image, video } = data;
   
+  // define path for media
   const videoFile = `assets/medias/${video}`;
   const picture = `assets/medias/${image}`;
 

@@ -7,8 +7,8 @@ function photographerFactory(data) {
 
   // create user card in DOM
   function getUserCardDOM() {
-    const article = document.createElement('article');
-    article.setAttribute('aria-label', 'carte photographe');
+    const article = document.createElement("article");
+    article.setAttribute("aria-label", "carte photographe");
     const pathId = `./photographer.html?id=${id}`;
     article.innerHTML = `
       <a href="${pathId}" aria-label="${name}">
